@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог Книг - Главная</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Шапка сайта -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Книжный Мир</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/">Главная</a></li>
+                    <li><a href="/catalog/">Каталог</a></li>
+                    <li><a href="/authors/">Авторы</a></li>
+                    <li><a href="/articles/">Статьи</a></li>
+                    <li><a href="#about">О сайте</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="container">
+        
+        <!-- Секция приветствия и поиска -->
+        <section class="hero">
+            <h1>Найдите свою следующую любимую книгу</h1>
+            <p>Тысячи произведений, отзывы читателей и рейтинги.</p>
+            <div class="search-bar">
+                <input type="text" placeholder="Поиск по названию или автору...">
+                <button>Искать</button>
+            </div>
+        </section>
+
+        <!-- Разделы каталога (взяты из структуры ЛР) -->
+        <section class="categories">
+            <h2>Направления</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <h3>Художественная литература</h3>
+                    <p>Фантастика, детективы, романы и др.</p>
+                </div>
+                <div class="category-card">
+                    <h3>Нехудожественная литература</h3>
+                    <p>Наука, психология, история, бизнес.</p>
+                </div>
+                <div class="category-card">
+                    <h3>Детская литература</h3>
+                    <p>Сказки, приключения, познавательное.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Популярные книги -->
+        <section class="popular-books">
+            <h2>Популярные произведения</h2>
+            <div class="books-grid">
+                <!-- Карточка книги 1 -->
+                <div class="book-card">
+                    <div class="book-cover book-1"></div>
+                    <div class="book-info">
+                        <span class="genre">Фэнтези</span>
+                        <h4>Мастер и Маргарита</h4>
+                        <p class="author">Михаил Булгаков</p>
+                        <div class="rating">⭐ 4.9 (1250 оценок)</div>
+                        <button class="btn-more">Подробнее</button>
+                    </div>
+                </div>
+                <!-- Карточка книги 2 -->
+                <div class="book-card">
+                    <div class="book-cover book-2"></div>
+                    <div class="book-info">
+                        <span class="genre">Детектив</span>
+                        <h4>Десять негритят</h4>
+                        <p class="author">Агата Кристи</p>
+                        <div class="rating">⭐ 4.8 (890 оценок)</div>
+                        <button class="btn-more">Подробнее</button>
+                    </div>
+                </div>
+                <!-- Карточка книги 3 -->
+                <div class="book-card">
+                    <div class="book-cover book-3"></div>
+                    <div class="book-info">
+                        <span class="genre">Наука</span>
+                        <h4>Краткая история времени</h4>
+                        <p class="author">Стивен Хокинг</p>
+                        <div class="rating">⭐ 4.7 (540 оценок)</div>
+                        <button class="btn-more">Подробнее</button>
+                    </div>
+                </div>
+                <!-- Карточка книги 4 -->
+                <div class="book-card">
+                    <div class="book-cover book-4"></div>
+                    <div class="book-info">
+                        <span class="genre">Роман</span>
+                        <h4>Гордость и предубеждение</h4>
+                        <p class="author">Джейн Остин</p>
+                        <div class="rating">⭐ 4.8 (1120 оценок)</div>
+                        <button class="btn-more">Подробнее</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer id="about">
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h4>О проекте</h4>
+                <p>Учебный проект для лабораторной работы по созданию удобного каталога книг с рейтингами и отзывами.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Помощь</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Как поставить оценку</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <p>Email: student@tula2026.ru</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Каталог Книг. Выполнила Лобачёва Е.А.</p>
+        </div>
+    </footer>
+</body>
+</html>

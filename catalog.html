@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Каталог книг по жанрам — поиск, фильтры и сортировка | Книжный Мир</title>
-    <meta name="description" content="Полный каталог книг с фильтрацией по жанру, автору, году публикации, рейтингу и количеству отзывов.">
+    <meta name="description" content="Полный каталог из 24 книг с фильтрацией по направлению, жанру, автору, году публикации, рейтингу и количеству отзывов.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,7 +18,7 @@
                 <a href="contacts.html">Контакты</a>
             </div>
             <div class="top-actions">
-                <a href="loyalty.html">🎁 Бонусы: <strong class="js-bonus-count">350</strong> ₽</a>
+                <a href="loyalty.html">Бонусы: <strong class="js-bonus-count">350</strong> ₽</a>
             </div>
         </div>
     </div>
@@ -27,19 +27,19 @@
         <div class="container header-main">
             <a href="index.html" class="logo">📚 Книжный Мир</a>
             <div class="search-box">
-                <input type="text" id="filter-search" oninput="filterCatalog()" placeholder="Быстрый фильтр по названию или автору...">
-                <button type="button" onclick="filterCatalog()">Фильтр</button>
+                <input type="text" id="filter-search" oninput="filterCatalog()" placeholder="Быстрый фильтр по названию, автору или жанру...">
+                <button type="button" onclick="filterCatalog()">Найти</button>
             </div>
             <div class="header-icons">
-                <a href="loyalty.html" class="icon-btn"><span>⚖️ Сравнение</span><span class="badge js-compare-count">2</span></a>
-                <a href="delivery.html" class="icon-btn"><span>🛒 Корзина</span><span class="badge js-cart-count">2</span></a>
+                <a href="loyalty.html" class="icon-btn"><span>Сравнение</span><span class="badge js-compare-count">2</span></a>
+                <a href="delivery.html" class="icon-btn"><span>Корзина</span><span class="badge js-cart-count">2</span></a>
             </div>
         </div>
         <nav class="main-nav">
             <div class="container">
                 <ul class="nav-list">
                     <li><a href="index.html">Главная</a></li>
-                    <li><a href="catalog.html" class="active">Каталог книг</a></li>
+                    <li><a href="catalog.html" class="active">Каталог книг (24)</a></li>
                     <li><a href="authors.html">Авторы</a></li>
                     <li><a href="ratings.html">Рейтинги и Топ-100</a></li>
                     <li><a href="articles.html">Статьи и подборки</a></li>
@@ -63,7 +63,7 @@
                 <div class="filter-group">
                     <h4>Литературное направление</h4>
                     <select id="filter-category" onchange="filterCatalog()">
-                        <option value="all">Все направления</option>
+                        <option value="all">Все направления (24)</option>
                         <option value="fiction">Художественная литература</option>
                         <option value="nonfiction">Нехудожественная литература</option>
                         <option value="kids">Детская литература</option>
@@ -74,14 +74,28 @@
                     <h4>Жанр</h4>
                     <select id="filter-genre" onchange="filterCatalog()">
                         <option value="all">Все жанры</option>
-                        <option value="Фэнтези">Фэнтези</option>
-                        <option value="Детективы">Детективы</option>
-                        <option value="Фантастика">Фантастика</option>
-                        <option value="Романы">Романы</option>
-                        <option value="Историческая литература">Историческая литература</option>
-                        <option value="Наука">Наука</option>
-                        <option value="Психология">Психология</option>
-                        <option value="Сказки">Детские сказки</option>
+                        <optgroup label="Художественная литература">
+                            <option value="Фэнтези">Фэнтези</option>
+                            <option value="Детективы">Детективы</option>
+                            <option value="Фантастика">Фантастика</option>
+                            <option value="Романы">Романы</option>
+                            <option value="Приключения">Приключения</option>
+                            <option value="Ужасы">Ужасы</option>
+                            <option value="Историческая литература">Историческая литература</option>
+                        </optgroup>
+                        <optgroup label="Нехудожественная (Нон-фикшн)">
+                            <option value="Наука">Наука</option>
+                            <option value="Психология">Психология</option>
+                            <option value="Бизнес">Бизнес</option>
+                            <option value="История">История</option>
+                            <option value="Образование">Образование</option>
+                            <option value="Кулинария">Кулинария</option>
+                        </optgroup>
+                        <optgroup label="Детская литература">
+                            <option value="Сказки">Сказки</option>
+                            <option value="Познавательная литература">Познавательная литература</option>
+                            <option value="Детские детективы">Детские детективы</option>
+                        </optgroup>
                     </select>
                 </div>
 
@@ -91,15 +105,16 @@
                         <option value="0">Любой рейтинг</option>
                         <option value="4.85">От 4.85 и выше</option>
                         <option value="4.9">От 4.90 и выше</option>
+                        <option value="4.95">От 4.95 и выше</option>
                     </select>
                 </div>
 
-                <button class="btn btn-outline" style="width:100%;" onclick="location.reload()">Сбросить фильтры</button>
+                <a href="catalog.html" class="btn btn-outline" style="width:100%;">Сбросить все фильтры</a>
             </aside>
 
             <section>
                 <div class="sort-bar">
-                    <span>Найдено изданий в каталоге: 10</span>
+                    <span id="js-catalog-count" style="font-weight:600;">Найдено изданий в каталоге: 24</span>
                     <div style="display:flex; align-items:center; gap:10px;">
                         <label for="sort-select" style="font-size:0.9rem; font-weight:600;">Сортировка:</label>
                         <select id="sort-select" onchange="filterCatalog()" style="width:230px;">
@@ -111,133 +126,8 @@
                     </div>
                 </div>
 
-                <div class="grid-3" id="catalog-books-grid">
-                    <div class="book-card" data-category="fiction" data-genre="Фэнтези" data-rating="4.95" data-reviews="1420" data-year="2026" data-title="Мастер и Маргарита" data-author="Михаил Булгаков">
-                        <a href="book.html?id=master-i-margarita" class="book-cover cover-1"><span>Мастер и Маргарита</span></a>
-                        <div class="book-body">
-                            <span class="book-genre">Фэнтези • 2026</span>
-                            <a href="book.html?id=master-i-margarita" class="book-title">Мастер и Маргарита</a>
-                            <a href="authors.html#bulgakov" class="book-author">Михаил Булгаков</a>
-                            <div class="book-rating">⭐ 4.95 (1420 отзывов)</div>
-                            <div class="book-price-row">
-                                <span class="price">850 ₽</span>
-                                <a href="book.html?id=master-i-margarita" class="btn btn-primary">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="book-card" data-category="fiction" data-genre="Детективы" data-rating="4.89" data-reviews="980" data-year="2025" data-title="Десять негритят" data-author="Агата Кристи">
-                        <a href="book.html?id=ten-little-indians" class="book-cover cover-2"><span>Десять негритят</span></a>
-                        <div class="book-body">
-                            <span class="book-genre">Детективы • 2025</span>
-                            <a href="book.html?id=ten-little-indians" class="book-title">Десять негритят</a>
-                            <a href="authors.html#christie" class="book-author">Агата Кристи</a>
-                            <div class="book-rating">⭐ 4.89 (980 отзывов)</div>
-                            <div class="book-price-row">
-                                <span class="price">690 ₽</span>
-                                <a href="book.html?id=ten-little-indians" class="btn btn-primary">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="book-card" data-category="nonfiction" data-genre="Наука" data-rating="4.82" data-reviews="640" data-year="2024" data-title="Краткая история времени" data-author="Стивен Хокинг">
-                        <a href="book.html?id=brief-history-of-time" class="book-cover cover-3"><span>Краткая история времени</span></a>
-                        <div class="book-body">
-                            <span class="book-genre">Наука • 2024</span>
-                            <a href="book.html?id=brief-history-of-time" class="book-title">Краткая история времени</a>
-                            <a href="authors.html#hawking" class="book-author">Стивен Хокинг</a>
-                            <div class="book-rating">⭐ 4.82 (640 отзывов)</div>
-                            <div class="book-price-row">
-                                <span class="price">990 ₽</span>
-                                <a href="book.html?id=brief-history-of-time" class="btn btn-primary">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="book-card" data-category="fiction" data-genre="Фантастика" data-rating="4.91" data-reviews="1150" data-year="2026" data-title="Дюна" data-author="Фрэнк Герберт">
-                        <a href="book.html?id=dune" class="book-cover cover-4"><span>Дюна</span></a>
-                        <div class="book-body">
-                            <span class="book-genre">Фантастика • 2026</span>
-                            <a href="book.html?id=dune" class="book-title">Дюна. Хроники Арракиса</a>
-                            <a href="authors.html#herbert" class="book-author">Фрэнк Герберт</a>
-                            <div class="book-rating">⭐ 4.91 (1150 отзывов)</div>
-                            <div class="book-price-row">
-                                <span class="price">1 120 ₽</span>
-                                <a href="book.html?id=dune" class="btn btn-primary">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="book-card" data-category="nonfiction" data-genre="Психология" data-rating="4.87" data-reviews="890" data-year="2025" data-title="Думай медленно… решай быстро" data-author="Даниэль Канеман">
-                        <a href="book.html?id=thinking-fast-and-slow" class="book-cover cover-5"><span>Думай медленно… решай быстро</span></a>
-                        <div class="book-body">
-                            <span class="book-genre">Психология • 2025</span>
-                            <a href="book.html?id=thinking-fast-and-slow" class="book-title">Думай медленно… решай быстро</a>
-                            <a href="authors.html" class="book-author">Даниэль Канеман</a>
-                            <div class="book-rating">⭐ 4.87 (890 отзывов)</div>
-                            <div class="book-price-row">
-                                <span class="price">940 ₽</span>
-                                <a href="book.html?id=thinking-fast-and-slow" class="btn btn-primary">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="book-card" data-category="kids" data-genre="Сказки" data-rating="4.96" data-reviews="1580" data-year="2026" data-title="Маленький принц" data-author="Антуан де Сент-Экзюпери">
-                        <a href="book.html?id=little-prince" class="book-cover cover-6"><span>Маленький принц</span></a>
-                        <div class="book-body">
-                            <span class="book-genre">Детская литература • 2026</span>
-                            <a href="book.html?id=little-prince" class="book-title">Маленький принц (с иллюстрациями)</a>
-                            <a href="authors.html" class="book-author">Антуан де Сент-Экзюпери</a>
-                            <div class="book-rating">⭐ 4.96 (1580 отзывов)</div>
-                            <div class="book-price-row">
-                                <span class="price">590 ₽</span>
-                                <a href="book.html?id=little-prince" class="btn btn-primary">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="book-card" data-category="fiction" data-genre="Фантастика" data-rating="4.92" data-reviews="1110" data-year="2025" data-title="Собачье сердце" data-author="Михаил Булгаков">
-                        <a href="book.html?id=sobache-serdtse" class="book-cover cover-2"><span>Собачье сердце</span></a>
-                        <div class="book-body">
-                            <span class="book-genre">Фантастика / Сатира • 2025</span>
-                            <a href="book.html?id=sobache-serdtse" class="book-title">Собачье сердце</a>
-                            <a href="authors.html#bulgakov" class="book-author">Михаил Булгаков</a>
-                            <div class="book-rating">⭐ 4.92 (1110 отзывов)</div>
-                            <div class="book-price-row">
-                                <span class="price">520 ₽</span>
-                                <a href="book.html?id=sobache-serdtse" class="btn btn-primary">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="book-card" data-category="fiction" data-genre="Историческая литература" data-rating="4.86" data-reviews="790" data-year="2025" data-title="Белая гвардия" data-author="Михаил Булгаков">
-                        <a href="book.html?id=belaya-gvardiya" class="book-cover cover-3"><span>Белая гвардия</span></a>
-                        <div class="book-body">
-                            <span class="book-genre">Историческая литература • 2025</span>
-                            <a href="book.html?id=belaya-gvardiya" class="book-title">Белая гвардия</a>
-                            <a href="authors.html#bulgakov" class="book-author">Михаил Булгаков</a>
-                            <div class="book-rating">⭐ 4.86 (790 отзывов)</div>
-                            <div class="book-price-row">
-                                <span class="price">640 ₽</span>
-                                <a href="book.html?id=belaya-gvardiya" class="btn btn-primary">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="book-card" data-category="fiction" data-genre="Романы" data-rating="4.90" data-reviews="1340" data-year="2026" data-title="Портрет Дориана Грея" data-author="Оскар Уайльд">
-                        <a href="book.html?id=portret-doriana-greya" class="book-cover cover-4"><span>Портрет Дориана Грея</span></a>
-                        <div class="book-body">
-                            <span class="book-genre">Романы / Классика • 2026</span>
-                            <a href="book.html?id=portret-doriana-greya" class="book-title">Портрет Дориана Грея</a>
-                            <a href="authors.html" class="book-author">Оскар Уайльд</a>
-                            <div class="book-rating">⭐ 4.90 (1340 отзывов)</div>
-                            <div class="book-price-row">
-                                <span class="price">610 ₽</span>
-                                <a href="book.html?id=portret-doriana-greya" class="btn btn-primary">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- Карточки 24 книг генерируются автоматически из script.js -->
+                <div class="grid-3" id="catalog-books-grid"></div>
             </section>
         </div>
     </main>

@@ -15,7 +15,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    /*box-sizing: border-box;*/
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
 }
 
@@ -288,6 +288,7 @@ main {
 
 /* Карточка книги */
 .book-card {
+	
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -302,7 +303,7 @@ main {
 }
 
 .book-cover {
-    height: 240px;
+    height: 460px; /* Было, например, 240px или 250px — увеличьте до нужной высоты */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -312,6 +313,7 @@ main {
     text-align: center;
     font-weight: 700;
     position: relative;
+    overflow: hidden;
 }
 
 .cover-1 { background: linear-gradient(135deg, #7c2d12, #c2410c); }
@@ -320,6 +322,10 @@ main {
 .cover-4 { background: linear-gradient(135deg, #065f46, #10b981); }
 .cover-5 { background: linear-gradient(135deg, #831843, #db2777); }
 .cover-6 { background: linear-gradient(135deg, #1e3a8a, #2563eb); }
+.cover-7 { background: linear-gradient(135deg, #0f766e, #14b8a6); }
+.cover-8 { background: linear-gradient(135deg, #4338ca, #6366f1); }
+.cover-9 { background: linear-gradient(135deg, #b45309, #f59e0b); }
+.cover-10 { background: linear-gradient(135deg, #374151, #111827); }
 
 .book-badge {
     position: absolute;
@@ -630,4 +636,26 @@ footer {
     .header-main {
         flex-wrap: wrap;
     }
+}
+
+/* Стили для реальных картинок-обложек */
+.book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* картинка заполняет блок без искажения пропорций */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Бейджик поверх картинки */
+.book-cover .book-badge {
+    z-index: 2;
+}
+
+/* На случай если картинка не загрузилась, текст останется виден на фоне */
+.book-cover span:not(.book-badge) {
+    position: relative;
+    z-index: 0;
 }
